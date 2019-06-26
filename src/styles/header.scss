@@ -16,11 +16,58 @@
     &__menu{
         a{
             margin: 0px 20px;
+            
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
 
     &__toggle{
         display: none;
+
+        button{
+            border: none;
+            height: 50px;
+            width: 50px;
+            position: relative;
+            background-color: transparent;
+            span{
+                position: absolute;
+                width: 50px;
+                height: 5px;
+                left: 0;
+                background-color: $light-text-color;
+                transition: transform 1s ease;
+                border-radius: 2.5px;
+            }
+            span:nth-child(1){
+                top: 0;
+            }
+            span:nth-child(2){
+                top: 25px;
+                transform: translate(0, -50%);
+                transition: opacity 1s ease;
+            }
+            span:nth-child(3){
+                top: 45px;
+            }
+
+        }
+        .close{
+            span:nth-child(1){
+                top: 0;
+                transform: rotate(-45deg) translate(-34%, 20px);
+            }
+            span:nth-child(2){
+                top: 25px;
+                opacity: 0;
+            }
+            span:nth-child(3){
+                top: 45px;
+                transform: rotate(45deg) translate(-24%, -15px);
+            }
+        }
     }
 }
 
@@ -30,6 +77,21 @@
         
         &__menu{
             display: none;
+        }
+
+        .open-menu{
+            position: fixed;
+            display: flex !important;
+            justify-content: flex-start;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            flex-direction: column;
+            background-color: $light-text-color;
+            color: $background-color;
+            a{
+                margin: 20px 20px;
+            }
         }
 
         &__toggle{
