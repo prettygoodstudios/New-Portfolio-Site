@@ -1,13 +1,17 @@
 import React, {Component} from "react";
 
 import Header from "./header";
+import CallToAction from "./callToAction";
+import About from "./about";
 
 export default class App extends Component {
     render(){
         return(
             <div>
                 <Header />
-                <h1>Hello from React!</h1>
+                <CallToAction />
+                <About />
+                <p>Lorum ipsum</p>
             </div>
         )
     }

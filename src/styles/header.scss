@@ -1,11 +1,16 @@
 .header{
+    position: fixed;
     display: flex;
     flex-direction: row;
     height: 75px;
+    width: calc(100vw - 40px);
+    top: 0px;
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
-    background-color: blue;
+    background-color: $background-color;
+    transition: height 1s ease;
+    z-index: 999;
 
     &__title{
         h1{
@@ -16,7 +21,7 @@
     &__menu{
         a{
             margin: 0px 20px;
-            
+
             &:hover{
                 cursor: pointer;
             }
@@ -28,7 +33,7 @@
 
         button{
             border: none;
-            height: 50px;
+            height: 30px;
             width: 50px;
             position: relative;
             background-color: transparent;
@@ -45,27 +50,27 @@
                 top: 0;
             }
             span:nth-child(2){
-                top: 25px;
+                top: 15px;
                 transform: translate(0, -50%);
                 transition: opacity 1s ease;
             }
             span:nth-child(3){
-                top: 45px;
+                top: 25px;
             }
 
         }
         .close{
             span:nth-child(1){
                 top: 0;
-                transform: rotate(-45deg) translate(-34%, 20px);
+                transform: rotate(-45deg) translate(-17%, 10px)
             }
             span:nth-child(2){
-                top: 25px;
+                top: 15px;
                 opacity: 0;
             }
             span:nth-child(3){
-                top: 45px;
-                transform: rotate(45deg) translate(-24%, -15px);
+                top: 25px;
+                transform: rotate(45deg) translate(-18%, -8px);
             }
         }
     }
@@ -77,15 +82,22 @@
         
         &__menu{
             display: none;
+            position: fixed;
+     
+        }
+
+        .close-menu{
+            left: -300px;
+            transition: left 1s ease;
         }
 
         .open-menu{
-            position: fixed;
             display: flex !important;
             justify-content: flex-start;
             top: 0px;
             left: 0px;
             height: 100%;
+            transform: translate(0,0);
             flex-direction: column;
             background-color: $light-text-color;
             color: $background-color;
@@ -99,4 +111,11 @@
         }
 
     }
+}
+
+.header-small{
+    height: 50px;
+    $background-color: $light-text-color;
+    $color: $background-color;
+    border-bottom: 2px solid $background-color;
 }

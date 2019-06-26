@@ -6,6 +6,8 @@ html, body{
     padding: 0;
     background-color: $background-color;
     color: $light-text-color;
+    overflow-x: hidden;
 }
 
 @import "header";
+@import "callToAction";

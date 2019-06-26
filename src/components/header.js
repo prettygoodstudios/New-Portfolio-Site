@@ -5,9 +5,11 @@ class Header extends Component {
     constructor(){
         super();
         this.state = {
-            toggleState: "open"
+            toggleState: "open",
+            size: "large"
         }
         window.onresize = () => this.updateHeader();
+        window.onscroll = (e) => this.updateHeaderHeight(e);
     }
 
     componentWillUnMount(){
@@ -23,6 +25,19 @@ class Header extends Component {
         }
     }
 
+    updateHeaderHeight = (e) => {
+        console.log(e.pageY);
+        if(e.pageY > 100 && this.state.size == "large"){
+            this.setState({
+                size: "small"
+            });
+        }else if(this.state.size == "small" && e.pageY <= 100){
+            this.setState({
+                size: "large"
+            });
+        }
+    }
+ 
     toggleMenu = () => {
         this.setState({
             toggleState: this.state.toggleState === "open" ? "close" : "open"
@@ -30,9 +45,9 @@ class Header extends Component {
     }
 
     render(){
-        const {toggleState} = this.state;
+        const {toggleState, size} = this.state;
         return(
-            <div className="header">
+            <div className={"header " + (size == "small" ? "header-small" : "")}>
                 <div className="header__title">
                     <h1>Miguel Rust</h1>
                 </div>

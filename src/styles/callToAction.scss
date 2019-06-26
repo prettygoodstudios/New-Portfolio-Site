@@ -1,0 +1,69 @@
+.call-to-action{
+    width: 100%;
+    height: calc(100vh - 75px);
+    margin-top: 75px;
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    h1{
+        max-width: 150px;
+        margin-left: 20px;
+        font-size: 2.5em;
+    }
+
+    canvas {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .graph{
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__bars{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            &__item{
+                margin: 0px 20px;
+                min-height: 370px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                div{
+                    width: 50px;
+                    border-radius: 3px;
+                }
+                &__old{
+                    height: 20px;
+                    background-color: #d91e18;
+                    align-self: flex-end;
+                }
+                &__new{
+                    height: 300px !important;
+                    background-color: #3fc380;
+                }
+                &__new-short{
+                    background-color: #3fc380;
+                    height: 20px;
+                    transition: transform 1s ease;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 420px){
+    .graph{
+        display: none !important;
+    }
+}
