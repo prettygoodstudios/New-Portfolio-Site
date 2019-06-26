@@ -1,0 +1,40 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    background-color: blue;
+
+    &__title{
+        h1{
+            margin: 0px;
+        }
+    }
+
+    &__menu{
+        a{
+            margin: 0px 20px;
+        }
+    }
+
+    &__toggle{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 600px){
+    .header{
+        
+        &__menu{
+            display: none;
+        }
+
+        &__toggle{
+            display: block;
+        }
+
+    }
+}

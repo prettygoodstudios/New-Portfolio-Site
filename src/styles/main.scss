@@ -1,0 +1,11 @@
+@import "variables";
+
+html, body{
+    font-family: Avenir;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+    color: $light-text-color;
+}
+
+@import "header";
