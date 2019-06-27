@@ -81,15 +81,15 @@ class CallToAction extends Component {
             <div className="call-to-action">   
                 <h1>Let me help you enhance your online presence.</h1>
                 <div className="graph">
-                    <h3>Page Views</h3>
+                    <h3>User Satisfaction & Engagement</h3>
                     <div className="graph__bars">
                         <div className="graph__bars__item">
                             <div className="graph__bars__item__old"></div>
-                            <h5>Old Site</h5>
+                            <h5>Your Bland Old Site</h5>
                         </div>
                         <div className="graph__bars__item">
                             <div className="graph__bars__item__new-short" style={{height: newHeight}}></div>
-                            <h5>New Site</h5>
+                            <h5>Your Snazzy New Site</h5>
                         </div>
                     </div>
                 </div>
