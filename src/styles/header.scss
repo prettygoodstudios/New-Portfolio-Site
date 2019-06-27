@@ -19,6 +19,7 @@
     }
 
     &__menu{
+        transition: left 1s ease;
         a{
             margin: 0px 20px;
 
@@ -83,12 +84,12 @@
         &__menu{
             display: none;
             position: fixed;
-     
+            transition: left 1s ease;
+            left: -300px;
         }
 
         .close-menu{
-            left: -300px;
-            transition: left 1s ease;
+   
         }
 
         .open-menu{

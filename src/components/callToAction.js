@@ -37,7 +37,8 @@ class CallToAction extends Component {
             canvas: {},
             context: {},
             icons: [],
-            grow: false
+            newHeight: 20
+
         }
     }
 
@@ -58,19 +59,24 @@ class CallToAction extends Component {
             icons
         });
         window.setInterval(() => this.animationLoop(), 1000/30);
-        window.setTimeout(() => this.setState({grow: true}), 1000);
     }
 
     animationLoop(){
-        const {context, canvas, icons} = this.state;
+        const {context, canvas, icons, newHeight} = this.state;
         context.fillStyle = "white";
         context.clearRect(0,0,canvas.width, canvas.height);
         icons.forEach((i) => {
             i.render(context, canvas.width);
         });
+        if(newHeight < 300){
+            this.setState({
+                newHeight: newHeight+1
+            });
+        }
     }
 
     render(){
+        const {newHeight} = this.state;
         return(
             <div className="call-to-action">   
                 <h1>Let me help you enhance your online presence.</h1>
@@ -82,7 +88,7 @@ class CallToAction extends Component {
                             <h5>Old Site</h5>
                         </div>
                         <div className="graph__bars__item">
-                            <div className={this.state.grow ? "graph__bars__item__new" : "graph__bars__item__new-short"}></div>
+                            <div className="graph__bars__item__new-short" style={{height: newHeight}}></div>
                             <h5>New Site</h5>
                         </div>
                     </div>

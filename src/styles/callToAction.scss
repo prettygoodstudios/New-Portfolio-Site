@@ -42,6 +42,7 @@
                 div{
                     width: 50px;
                     border-radius: 3px;
+                    transition: transform 1s ease;
                 }
                 &__old{
                     height: 20px;
