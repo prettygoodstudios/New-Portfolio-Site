@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 const likeIcon = new Image();
-likeIcon.src = "https://i0.wp.com/www.vectorico.com/wp-content/uploads/2018/02/Like-Icon.png?resize=300%2C289";
+likeIcon.src = require("../images/likeicon.png");
 const pointerIcon = new Image();
-pointerIcon.src = "https://www.clipartmax.com/png/middle/310-3102180_computer-hand-computerhand-black-white-overlay-tumblr-mouse-pointer.png";
+pointerIcon.src = require("../images/pointer.png");
 const iconTypes = [likeIcon, pointerIcon];
 
 class AnimatedIcon {
