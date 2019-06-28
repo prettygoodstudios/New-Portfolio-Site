@@ -46,6 +46,18 @@ const About = (props) => {
                     <li>Graduated from Mountain View High School with a 3.946 GPA.</li>
                 </ul>
             </div>
+            <div className="skills-section">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Ruby on Rails</li>
+                    <li>Javascript (Vanilla, React, Node, Vue, jQuery, Express, ES5 Syntax, ES6+ Syntax)</li>
+                    <li>Front End Technologies (HTML, CSS, SCSS, Webpack)</li>
+                    <li>SQL (MySQL, PostgreSQL, Microsoft SQL Server)</li>
+                    <li>UNIX Bash (Ubuntu, Mac OSX)</li>
+                    <li>Cloud Computing (Heroku Paas, AWS S3, AWS SES)</li>
+                    <li>Version Control Systems (Git)</li>
+                </ul>
+            </div>
         </div>
     );
 }
