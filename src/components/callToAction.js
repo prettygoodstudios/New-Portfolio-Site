@@ -59,6 +59,13 @@ class CallToAction extends Component {
             icons
         });
         window.setInterval(() => this.animationLoop(), 1000/30);
+        const resizeFunc = window.onresize;
+        window.onresize = () => {
+            resizeFunc();
+            this.setState({
+                context: document.getElementById("animation-wrapper").getContext("2d")
+            });
+        }
     }
 
     animationLoop(){
