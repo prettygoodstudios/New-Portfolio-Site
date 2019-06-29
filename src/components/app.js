@@ -4,6 +4,7 @@ import Header from "./header";
 import CallToAction from "./callToAction";
 import About from "./about";
 import Portfolio from "./portfolio";
+import Contact from "./contact";
 
 export default class App extends Component {
     render(){
@@ -13,6 +14,7 @@ export default class App extends Component {
                 <CallToAction />
                 <About />
                 <Portfolio />
+                <Contact />
             </div>
         )
     }

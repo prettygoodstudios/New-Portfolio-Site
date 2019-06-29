@@ -1,0 +1,95 @@
+.contact{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    background-color: $light-text-color;
+    color: $background-color;
+    padding: 20px;
+
+    > h1{
+        border-bottom: 2px solid $background-color;
+        grid-column: 1/3;
+    }
+
+    &__attention{
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h1{
+            max-width: 100px;
+        }
+
+        div{
+            span{
+                display: block;
+
+            }
+        }
+    }
+    &__form{
+        grid-row: 2;
+
+        label{
+            display: block;
+        }
+
+        input{
+            width: 100%;
+            font-size: 1.2em;
+            border-radius: 3px;
+            border: none;
+            padding: 4px;
+        }
+
+        textarea{
+            width: 100%;
+            font-size: 1.2em;
+            border-radius: 3px;
+            border: none;
+            padding: 4px;
+            font-family: Avenir;
+        }
+
+        button{
+            background-color: $background-color;
+            border: none;
+            color: $light-text-color;
+            padding: 10px;
+            margin: 20px auto;
+            font-size: 1.2em;
+            border-radius: 30px;
+            width: 200px;
+            border: 2px solid $background-color;
+
+            &:hover{
+                color: $background-color;
+                cursor: pointer;
+                background-color: $light-text-color;
+            }
+        }
+    }
+    &__basic-info{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .contact{
+        display: flex;
+        flex-direction: column;
+        &__attention{
+            div{
+                display: none;
+            }
+        }
+        &__basic-info{
+            display: block;
+            span{
+                display: block;
+
+            }
+        }
+    }
+}

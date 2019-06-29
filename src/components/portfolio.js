@@ -27,33 +27,39 @@ class Portfolio extends Component {
                     title: "GeoFocus",
                     description: "Web app for photographers built with Ruby On Rails, React, Mapbox, AWS SES and AWS S3. It was deployed to the Heroku Paas.",
                     image: geoImage,
-                    url: "https://geofoc.us"
+                    url: "https://geofoc.us",
+                    stack: "Rails"
                 },
                 {
                     title: "GeoFocus",
                     description: "Web app for photographers built with Ruby On Rails, React, Mapbox, AWS SES and AWS S3. It was deployed to the Heroku Paas.",
                     image: geoImage,
-                    url: "https://geofoc.us"
+                    url: "https://geofoc.us",
+                    stack: "Rails"
                 },{
                     title: "GeoFocus",
                     description: "Web app for photographers built with Ruby On Rails, React, Mapbox, AWS SES and AWS S3. It was deployed to the Heroku Paas.",
                     image: geoImage,
-                    url: "https://geofoc.us"
+                    url: "https://geofoc.us",
+                    stack: "Rails"
                 },{
                     title: "GeoFocus",
                     description: "Web app for photographers built with Ruby On Rails, React, Mapbox, AWS SES and AWS S3. It was deployed to the Heroku Paas.",
                     image: geoImage,
-                    url: "https://geofoc.us"
+                    url: "https://geofoc.us",
+                    stack: "Rails"
                 },{
                     title: "GeoFocus",
                     description: "Web app for photographers built with Ruby On Rails, React, Mapbox, AWS SES and AWS S3. It was deployed to the Heroku Paas.",
                     image: geoImage,
-                    url: "https://geofoc.us"
+                    url: "https://geofoc.us",
+                    stack: "Rails"
                 },{
                     title: "GeoFocus",
                     description: "Web app for photographers built with Ruby On Rails, React, Mapbox, AWS SES and AWS S3. It was deployed to the Heroku Paas.",
                     image: geoImage,
-                    url: "https://geofoc.us"
+                    url: "https://geofoc.us",
+                    stack: "Rails"
                 }
             ]
         }
@@ -66,8 +72,8 @@ class Portfolio extends Component {
                 <p>Hover on an item to recieve more information. Click on an item to view.</p>
                 <div className="portfolio-items">
                     {   this.state.items.map((i, x) => {
-                        const {title, description, image, url} = i;
-                        return <PortfolioItem title={title} description={description} image={image} url={url} key={x}/>;
+                        const {title, description, image, url, stack} = i;
+                        return <PortfolioItem title={title} description={description} image={image} url={url} key={x} stack={stack}/>;
                     })}
                 </div>
             </div>
