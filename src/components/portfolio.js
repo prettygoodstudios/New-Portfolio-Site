@@ -67,7 +67,7 @@ class Portfolio extends Component {
 
     render(){
         return(
-            <div className="portfolio">
+            <div className="portfolio" id="portfolio">
                 <h1>Portfolio</h1>
                 <p>Hover on an item to recieve more information. Click on an item to view.</p>
                 <div className="portfolio-items">

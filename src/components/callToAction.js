@@ -85,7 +85,7 @@ class CallToAction extends Component {
     render(){
         const {newHeight} = this.state;
         return(
-            <div className="call-to-action">   
+            <div className="call-to-action" id="home">   
                 <h1>Let me help you enhance your online presence.</h1>
                 <div className="graph">
                     <h3>User Satisfaction & Engagement</h3>

@@ -2,7 +2,7 @@ import React from "react";
 
 const About = (props) => {
     return(
-        <div className="about">
+        <div className="about" id="about">
             <h1>About Me</h1>
             <div className="about-section">
                 <div className="about-section__profile-image">
