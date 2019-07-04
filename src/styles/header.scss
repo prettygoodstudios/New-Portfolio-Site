@@ -20,6 +20,7 @@
 
     &__menu{
         transition: left 1s ease;
+        left: -300px;
         a{
             margin: 0px 20px;
 
@@ -84,27 +85,8 @@
         &__menu{
             display: none;
             position: fixed;
-            transition: left 1s ease;
             left: -300px;
-        }
-
-        .close-menu{
-   
-        }
-
-        .open-menu{
-            display: flex !important;
-            justify-content: flex-start;
-            top: 0px;
-            left: 0px;
-            height: 100%;
-            transform: translate(0,0);
-            flex-direction: column;
-            background-color: $light-text-color;
-            color: $background-color;
-            a{
-                margin: 20px 20px;
-            }
+            transition: 1s left ease;
         }
 
         &__toggle{
@@ -112,6 +94,30 @@
         }
 
     }
+}
+
+.close-menu{
+   transition: 1s left ease;
+   left: -300px;
+}
+
+.open-menu{
+    display: flex !important;
+    justify-content: flex-start;
+    top: 0px;
+    left: 0px !important;
+    height: 100%;
+    flex-direction: column;
+    background-color: $light-text-color;
+    color: $background-color;
+    a{
+        margin: 20px 20px;
+    }
+}
+
+.mobile-menu{
+    transition: 1s left ease;
+    left: -300px;
 }
 
 .header-small{

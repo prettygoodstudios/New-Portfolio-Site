@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app";
+import smoothscroll from 'smoothscroll-polyfill';
+ 
+smoothscroll.polyfill();
 
 import styles from "./styles/main.scss";
 

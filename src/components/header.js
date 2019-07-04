@@ -26,12 +26,12 @@ class Header extends Component {
     }
 
     updateHeaderHeight = (e) => {
-        console.log(e.pageY);
-        if(e.pageY > 100 && this.state.size == "large"){
+        console.log(window.pageYOffset);
+        if(window.pageYOffset > 100 && this.state.size == "large"){
             this.setState({
                 size: "small"
             });
-        }else if(this.state.size == "small" && e.pageY <= 100){
+        }else if(this.state.size == "small" && window.pageYOffset <= 100){
             this.setState({
                 size: "large"
             });
@@ -60,7 +60,7 @@ class Header extends Component {
                 <div className="header__title">
                     <h1>Miguel Rust</h1>
                 </div>
-                <div className={"header__menu "+((toggleState == "open") ? "close-menu" : "open-menu")}>
+                <div className={"header__menu "+((toggleState == "open") ? "close-menu" : "open-menu")+" "+((size == "small") ? "mobile-menu" : "")}>
                     <a onClick={() => this.scrollTo("home")}>Home</a>
                     <a onClick={() => this.scrollTo("about")}>About</a>
                     <a onClick={() => this.scrollTo("portfolio")}>Portfolio</a>
