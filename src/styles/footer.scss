@@ -25,12 +25,19 @@
         align-items: center;
         a{
             margin: 10px;
+            font-size: 30px;
+            color: $light-text-color;
+            text-decoration: none;
             &:hover{
                 color: rgba(0,0,0,0.1);
                 cursor: pointer;
             }
         }
     }
+}
+
+.icon{
+    fill: white;
 }
 
 @media only screen and (max-widtH: 730px){

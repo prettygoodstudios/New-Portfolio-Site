@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 
+
+
 export default class Footer extends Component {
     render(){
         return(
@@ -13,8 +15,8 @@ export default class Footer extends Component {
                     <span>Orem, UT</span>
                 </div>
                 <div className="footer__social-section">
-                    <a>GH</a>
-                    <a>LI</a>
+                    <a href="https://github.com/prettygoodstudios"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/miguel-rust-659342164/"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         )
