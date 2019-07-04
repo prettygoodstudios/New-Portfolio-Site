@@ -41,6 +41,8 @@
             border-radius: 3px;
             border: none;
             padding: 4px;
+            max-width: calc(50vw - 20px);
+            min-width: calc(50vw - 20px);
         }
 
         textarea{
@@ -50,6 +52,8 @@
             border: none;
             padding: 4px;
             font-family: Avenir;
+            max-width: calc(50vw - 20px);
+            min-width: calc(50vw - 20px);
         }
 
         button{
@@ -89,6 +93,16 @@
             span{
                 display: block;
 
+            }
+        }
+        &__form{
+            input{
+                max-width: calc(100vw - 40px);
+                min-width: calc(100vw - 40px);
+            }
+            textarea{
+                max-width: calc(100vw - 40px);
+                min-width: calc(100vw - 40px);
             }
         }
     }
