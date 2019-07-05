@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Typewriter from "typewriter-effect/dist/core";
 
 const likeIcon = new Image();
 likeIcon.src = require("../images/likeicon.png");
@@ -37,8 +38,9 @@ class CallToAction extends Component {
             canvas: {},
             context: {},
             icons: [],
-            newHeight: 20
-
+            newHeight: 20,
+            showCarot: false,
+            carotFrames: 0
         }
     }
 
@@ -66,10 +68,14 @@ class CallToAction extends Component {
                 context: document.getElementById("animation-wrapper").getContext("2d")
             });
         }
+        new Typewriter(".call-to-action > h1 > span", {
+            strings: "Let me help you enhance your online presence.",
+            autoStart: true
+        });
     }
 
     animationLoop(){
-        const {context, canvas, icons, newHeight} = this.state;
+        const {context, canvas, icons, newHeight, carotFrames, showCarot} = this.state;
         context.fillStyle = "white";
         context.clearRect(0,0,canvas.width, canvas.height);
         icons.forEach((i) => {
@@ -80,13 +86,31 @@ class CallToAction extends Component {
                 newHeight: newHeight+1
             });
         }
+        if(carotFrames < 30){
+            this.setState({
+                carotFrames: carotFrames+1
+            });
+        }else{
+            this.setState({
+                carotFrames: 0,
+                showCarot: !showCarot
+            });
+        }
+    }
+
+    scrollToAbout = () => {
+        const offset = document.getElementById("about").offsetTop;
+        window.scroll({
+            top: offset - 20,
+            behavior: "smooth"
+        });
     }
 
     render(){
-        const {newHeight} = this.state;
+        const {newHeight, showCarot} = this.state;
         return(
             <div className="call-to-action" id="home">   
-                <h1>Let me help you enhance your online presence.</h1>
+                <h1><span></span></h1>
                 <div className="graph">
                     <h3>User Satisfaction & Engagement</h3>
                     <div className="graph__bars">
@@ -101,6 +125,10 @@ class CallToAction extends Component {
                     </div>
                 </div>
                 <canvas id="animation-wrapper" height={window.innerHeight - 75 + "px"} width={window.innerWidth + "px"}></canvas>
+                <div className="call-to-action__carot-wrapper">
+                    <span>Scroll To View More</span>
+                    <div className={"call-to-action__carot " + (showCarot ? "" : "carot-hide")} onClick={() => this.scrollToAbout()}></div>
+                </div>
             </div>
         );
     }

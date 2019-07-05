@@ -20,6 +20,31 @@
         left: 0px;
     }
 
+    &__carot-wrapper{
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__carot{
+        transform: rotate(45deg);
+        border-width: 0px 4px 4px 0px;
+        width: 30px;
+        height: 30px;
+        border-color: $light-text-color;
+        
+        border-style: solid;
+        border-radius: 2px;
+        transition: 1s opacity ease;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
     .graph{
         position: absolute;
         right: 20px;
@@ -71,6 +96,10 @@
             }
         }
     }
+}
+
+.carot-hide{
+    opacity: 0 !important;
 }
 
 @media only screen and (max-width: 420px){
