@@ -73,9 +73,51 @@
                 background-color: $light-text-color;
             }
         }
+
+        &__error{
+            background-color: $background-color;
+            color: $light-text-color;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #captcha{
+            margin: 20px 0px 20px 0px;
+        }
     }
     &__basic-info{
         display: none;
+    }
+    &__modal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $light-text-color;
+        padding: 20px;
+        border-radius: 5px;
+        border: 2px solid $background-color;
+        color: $background-color;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        h1{
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button{
+            background-color: $background-color;
+            color: $light-text-color;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
 }
 
