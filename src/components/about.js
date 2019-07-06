@@ -48,6 +48,32 @@ const About = (props) => {
             </div>
             <div className="skills-section">
                 <h3>Skills</h3>
+                <div className="skills-section__icons">
+                    <div>
+                        <i className="fab fa-node-js"></i>
+                        <span>Node</span>
+                    </div>
+                    <div>
+                        <i className="fas fa-terminal"></i>
+                        <span>Bash</span>
+                    </div>
+                    <div>
+                        <i className="fas fa-database"></i>
+                        <span>SQL</span>
+                    </div>
+                    <div>
+                        <i className="fab fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
+                    <div>
+                        <i className="fas fa-cloud"></i>
+                        <span>Cloud</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-sitemap"></i>
+                        <span>Ruby on Rails</span>
+                    </div>
+                </div>
                 <ul>
                     <li>Ruby on Rails</li>
                     <li>Javascript (Vanilla, React, Node, Vue, jQuery, Express, ES5 Syntax, ES6+ Syntax)</li>
