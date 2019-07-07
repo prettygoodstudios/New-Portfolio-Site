@@ -75,20 +75,27 @@ class Screen {
         this.boundingTop = y + this.bezel + this.screenRadius;
         this.boundingBottom = y + this.screenHeight - this.bezel - this.screenRadius;
         drawRoundedRect(x, y, this.screenWidth, this.screenHeight, this.screenRadius, context, "black");
-        drawRoundedRect(x + this.bezel, y + this.bezel, this.screenWidth - this.bezel*2, this.screenHeight - this.bezel*2, this.screenRadius, context, "white");
+        drawRoundedRect(x + this.bezel, y + this.bezel, this.screenWidth - this.bezel*2, this.screenHeight - this.bezel*2, 0, context, "white");
     }
 }
 
 class Phone extends Screen{
-    constructor(x, y){
+    constructor(rad, centerX, centerY, radius){
         super(100, 200, 10, 5);
-        this.x = x;
-        this.y = y;
+        this.rad = rad;
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.radius = radius;
     }
     render(context){
-        super.render(context, this.x, this.y);
+        this.rad += 0.01;
+        if(this.rad > Math.PI*2){
+            this.rad = 0;
+        }
+        const x = this.centerX + this.radius*Math.cos(this.rad);
+        const y = this.centerY + this.radius*Math.sin(this.rad);
+        super.render(context, x, y);
         context.fillStyle = "blue";
-        
     }
 }
 
@@ -122,7 +129,7 @@ class CallToAction extends Component {
         }
         this.setState({
             icons,
-            phones: [new Phone(50,200)]
+            phones: [new Phone(0, 300, 300, 200)]
         });
         window.setInterval(() => this.animationLoop(), 1000/30);
         const resizeFunc = window.onresize;
