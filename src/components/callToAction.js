@@ -67,9 +67,13 @@ class Screen {
         this.screenHeight = height;
         this.screenWidth = width;
         this.bezel = bezel;
-        this.screenRadius = radius
+        this.screenRadius = radius;
     }
     render(context, x, y){
+        this.boundingLeft = x + this.bezel + this.screenRadius;
+        this.boundingRight = x + this.screenWidth - this.bezel - this.screenRadius;
+        this.boundingTop = y + this.bezel + this.screenRadius;
+        this.boundingBottom = y + this.screenHeight - this.bezel - this.screenRadius;
         drawRoundedRect(x, y, this.screenWidth, this.screenHeight, this.screenRadius, context, "black");
         drawRoundedRect(x + this.bezel, y + this.bezel, this.screenWidth - this.bezel*2, this.screenHeight - this.bezel*2, this.screenRadius, context, "white");
     }
@@ -83,6 +87,8 @@ class Phone extends Screen{
     }
     render(context){
         super.render(context, this.x, this.y);
+        context.fillStyle = "blue";
+        
     }
 }
 
