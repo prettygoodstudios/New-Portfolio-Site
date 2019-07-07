@@ -7,6 +7,38 @@ const pointerIcon = new Image();
 pointerIcon.src = require("../images/pointer.png");
 const iconTypes = [likeIcon, pointerIcon];
 
+const drawRoundedRect = (x, y, width, height, borderRadius, context, fill) => {
+    const radiusX = borderRadius;
+    const radiusY = borderRadius;
+    const innerH = height - radiusY * 2;
+    const innerW = width - radiusX * 2;
+    const left = x + radiusX;
+    const top = y + radiusY;
+    const right = x + width - radiusX;
+    const bottom = y + height - radiusY;
+    context.fillStyle = fill;
+    //Top Left Circle
+    context.beginPath();
+    context.arc(left, top, borderRadius, 0, 2 * Math.PI);
+    context.fill(); 
+    //Top Right Circle
+    context.beginPath();
+    context.arc(right, top, borderRadius, 0, 2 * Math.PI);
+    context.fill();
+    //Bottom Left Circle
+    context.beginPath();
+    context.arc(left, bottom, borderRadius, 0, 2 * Math.PI);
+    context.fill();
+    //Bottom Right Circle
+    context.beginPath();
+    context.arc(right, bottom, borderRadius, 0, 2 * Math.PI);
+    context.fill();
+    //Vertical Rect
+    context.fillRect(left,y,innerW,height);
+    //Horizontal Rect
+    context.fillRect(x, top, width, innerH);
+}
+
 class AnimatedIcon {
     constructor(icon, x, y, rad){
         this.icon = icon;
@@ -96,6 +128,8 @@ class CallToAction extends Component {
                 showCarot: !showCarot
             });
         }
+        drawRoundedRect(30,30,220,220,10,context, "black");
+        drawRoundedRect(40,40,200,200,10,context, "white");
     }
 
     scrollToAbout = () => {
