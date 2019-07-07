@@ -62,6 +62,30 @@ class AnimatedIcon {
    }
 }
 
+class Screen {
+    constructor(width, height, bezel, radius){
+        this.screenHeight = height;
+        this.screenWidth = width;
+        this.bezel = bezel;
+        this.screenRadius = radius
+    }
+    render(context, x, y){
+        drawRoundedRect(x, y, this.screenWidth, this.screenHeight, this.screenRadius, context, "black");
+        drawRoundedRect(x + this.bezel, y + this.bezel, this.screenWidth - this.bezel*2, this.screenHeight - this.bezel*2, this.screenRadius, context, "white");
+    }
+}
+
+class Phone extends Screen{
+    constructor(x, y){
+        super(100, 200, 10, 5);
+        this.x = x;
+        this.y = y;
+    }
+    render(context){
+        super.render(context, this.x, this.y);
+    }
+}
+
 class CallToAction extends Component {
 
     constructor(){
@@ -72,7 +96,8 @@ class CallToAction extends Component {
             icons: [],
             newHeight: 20,
             showCarot: false,
-            carotFrames: 0
+            carotFrames: 0,
+            phones: []
         }
     }
 
@@ -90,7 +115,8 @@ class CallToAction extends Component {
             icons.push(new AnimatedIcon(icon, x, y, rad));
         }
         this.setState({
-            icons
+            icons,
+            phones: [new Phone(50,200)]
         });
         window.setInterval(() => this.animationLoop(), 1000/30);
         const resizeFunc = window.onresize;
@@ -107,7 +133,7 @@ class CallToAction extends Component {
     }
 
     animationLoop(){
-        const {context, canvas, icons, newHeight, carotFrames, showCarot} = this.state;
+        const {context, canvas, icons, newHeight, carotFrames, showCarot, phones} = this.state;
         context.fillStyle = "white";
         context.clearRect(0,0,canvas.width, canvas.height);
         icons.forEach((i) => {
@@ -128,8 +154,7 @@ class CallToAction extends Component {
                 showCarot: !showCarot
             });
         }
-        drawRoundedRect(30,30,220,220,10,context, "black");
-        drawRoundedRect(40,40,200,200,10,context, "white");
+        phones[0].render(context);
     }
 
     scrollToAbout = () => {
