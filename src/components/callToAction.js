@@ -79,9 +79,55 @@ class Screen {
     }
 }
 
-class Phone extends Screen{
+class Laptop extends Screen{
     constructor(rad, centerX, centerY, radius){
-        super(100, 200, 10, 5);
+        super(150,100, 10, 10);
+        this.rad = rad;
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.radius = radius;
+    }
+    render(context){
+        this.rad += 0.01;
+        if(this.rad > Math.PI*2){
+            this.rad = 0;
+        }
+        const x = this.centerX + this.radius*Math.cos(this.rad);
+        const y = this.centerY + this.radius*Math.sin(this.rad);
+        super.render(context, x, y);
+        context.fillStyle = "gray";
+        context.fillRect(x, y+this.screenHeight-4, this.screenWidth, 10);
+    }
+}
+
+class Desktop extends Screen{
+    constructor(rad, centerX, centerY, radius){
+        super(150,100, 10, 10);
+        this.rad = rad;
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.radius = radius;
+    }
+    render(context){
+        this.rad += 0.01;
+        if(this.rad > Math.PI*2){
+            this.rad = 0;
+        }
+        const x = this.centerX + this.radius*Math.cos(this.rad);
+        const y = this.centerY + this.radius*Math.sin(this.rad);
+        super.render(context, x, y);
+        context.fillStyle = "gray";
+        const standWidth = 10;
+        const standBaseWidth = 40;
+        const standHeight = 30;
+        context.fillRect(x+this.screenWidth*0.5-standWidth*0.5, y+this.screenHeight, standWidth, standHeight);
+        context.fillRect(x+this.screenWidth*0.5-standBaseWidth*0.5, y+this.screenHeight+standHeight, standBaseWidth, standWidth);
+    }
+}
+
+class Phone extends Screen{
+    constructor(rad, centerX, centerY, radius, width, height){
+        super(width, height, 10, 5);
         this.rad = rad;
         this.centerX = centerX;
         this.centerY = centerY;
@@ -127,9 +173,12 @@ class CallToAction extends Component {
             const icon = iconTypes[Math.floor(iconTypes.length*Math.random())];
             icons.push(new AnimatedIcon(icon, x, y, rad));
         }
+        const deviceCenterX = window.innerWidth*0.7;
+        const deviceCenterY = window.innerHeight*0.5;
+        const deviceRadius = 200;
         this.setState({
             icons,
-            phones: [new Phone(0, 300, 300, 200)]
+            phones: [new Phone(0, deviceCenterX, deviceCenterY, deviceRadius, 100, 200), new Phone(Math.PI*0.5, deviceCenterX, deviceCenterY, deviceRadius, 150, 120), new Laptop(Math.PI, deviceCenterX, deviceCenterY, deviceRadius), new Desktop(Math.PI*1.5, deviceCenterX, deviceCenterY, deviceRadius)]
         });
         window.setInterval(() => this.animationLoop(), 1000/30);
         const resizeFunc = window.onresize;
@@ -149,9 +198,11 @@ class CallToAction extends Component {
         const {context, canvas, icons, newHeight, carotFrames, showCarot, phones} = this.state;
         context.fillStyle = "white";
         context.clearRect(0,0,canvas.width, canvas.height);
+        /*
         icons.forEach((i) => {
             i.render(context, canvas.width);
         });
+        */
         if(newHeight < 300){
             this.setState({
                 newHeight: newHeight+1
@@ -167,7 +218,9 @@ class CallToAction extends Component {
                 showCarot: !showCarot
             });
         }
-        phones[0].render(context);
+        phones.forEach((p) => {
+            p.render(context);
+        });
     }
 
     scrollToAbout = () => {
@@ -183,6 +236,7 @@ class CallToAction extends Component {
         return(
             <div className="call-to-action" id="home">   
                 <h1><span></span></h1>
+                { /*
                 <div className="graph">
                     <h3>User Satisfaction & Engagement</h3>
                     <div className="graph__bars">
@@ -196,6 +250,8 @@ class CallToAction extends Component {
                         </div>
                     </div>
                 </div>
+                */
+                }
                 <canvas id="animation-wrapper" height={window.innerHeight - 75 + "px"} width={window.innerWidth + "px"}></canvas>
                 <div className="call-to-action__carot-wrapper">
                     <span>Scroll To View More</span>
