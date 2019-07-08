@@ -245,7 +245,7 @@ class CallToAction extends Component {
             const icon = iconTypes[Math.floor(iconTypes.length*Math.random())];
             icons.push(new AnimatedIcon(icon, x, y, rad));
         }
-        const deviceCenterX = window.innerWidth*0.7;
+        const deviceCenterX = window.innerWidth > 1000 ? window.innerWidth*0.7 : window.innerWidth*0.55;
         const deviceCenterY = window.innerHeight*0.5;
         const deviceRadius = 200;
         this.setState({
@@ -258,6 +258,15 @@ class CallToAction extends Component {
             resizeFunc();
             this.setState({
                 context: document.getElementById("animation-wrapper").getContext("2d")
+            });
+
+            const updatedPhones = this.state.phones.map((p) => {
+                p.centerX = window.innerWidth > 1000 ? window.innerWidth*0.7 : window.innerWidth*0.55;
+                const newP = p;
+                return newP;
+            });
+            this.setState({
+                phones: updatedPhones
             });
         }
         new Typewriter(".call-to-action > h1 > span", {
@@ -290,9 +299,11 @@ class CallToAction extends Component {
                 showCarot: !showCarot
             });
         }
-        phones.forEach((p) => {
-            p.render(context);
-        });
+        if(window.innerWidth > 500){
+            phones.forEach((p) => {
+                p.render(context);
+            });
+        }
     }
 
     scrollToAbout = () => {
@@ -307,7 +318,6 @@ class CallToAction extends Component {
         const {newHeight, showCarot} = this.state;
         return(
             <div className="call-to-action" id="home">   
-                <h1><span></span></h1>
                 { /*
                 <div className="graph">
                     <h3>User Satisfaction & Engagement</h3>
@@ -325,6 +335,7 @@ class CallToAction extends Component {
                 */
                 }
                 <canvas id="animation-wrapper" height={window.innerHeight - 75 + "px"} width={window.innerWidth + "px"}></canvas>
+                <h1><span></span></h1>
                 <div className="call-to-action__carot-wrapper">
                     <span>Scroll To View More</span>
                     <div className={"call-to-action__carot " + (showCarot ? "" : "carot-hide")} onClick={() => this.scrollToAbout()}></div>
