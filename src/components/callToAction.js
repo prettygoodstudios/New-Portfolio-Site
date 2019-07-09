@@ -68,34 +68,16 @@ class Screen {
         this.screenWidth = width;
         this.bezel = bezel;
         this.screenRadius = radius;
+        this.wavesX = -0.8*Math.PI*4+this.screenWidth-this.bezel;
     }
-    render(context, x, y){
+    render(context, x, y, color){
         this.boundingLeft = x + this.bezel + this.screenRadius;
         this.boundingRight = x + this.screenWidth - this.bezel - this.screenRadius;
         this.boundingTop = y + this.bezel + this.screenRadius;
         this.boundingBottom = y + this.screenHeight - this.bezel - this.screenRadius;
         drawRoundedRect(x, y, this.screenWidth, this.screenHeight, this.screenRadius, context, "black");
         drawRoundedRect(x + this.bezel, y + this.bezel, this.screenWidth - this.bezel*2, this.screenHeight - this.bezel*2, 0, context, "white");
-    }
-}
-
-class Laptop extends Screen{
-    constructor(rad, centerX, centerY, radius){
-        super(150,100, 10, 10);
-        this.rad = rad;
-        this.centerX = centerX;
-        this.centerY = centerY;
-        this.radius = radius;
-        this.wavesX = -200;
-    }
-    render(context){
-        this.rad += 0.01;
-        if(this.rad > Math.PI*2){
-            this.rad = 0;
-        }
-        const x = this.centerX + this.radius*Math.cos(this.rad);
-        const y = this.centerY + this.radius*Math.sin(this.rad);
-        super.render(context, x, y);
+        //Screen Animiation
         const screenRealW = this.boundingRight - this.boundingLeft;
         const screenRealH = this.boundingBottom - this.boundingTop;
         const waveHeight = 5;
@@ -110,7 +92,7 @@ class Laptop extends Screen{
                 let y = row*waveHeight*2+Math.sin(wavePos)*50 + this.boundingTop - screenRealH*1.2;
                 let x = this.wavesX + wavesOffset + this.boundingLeft;
                 if (y < this.boundingBottom && y > this.boundingTop && x < this.boundingRight && x > this.boundingLeft){
-                    context.fillStyle = row % 2 == 0 ? "white" : `rgb(0, 0, ${Math.abs(wavePos)/(Math.PI*2)*255})`;
+                    context.fillStyle = row % 2 == 0 ? "white" : `rgb(${this.color === 'r' ? Math.abs(wavePos)/(Math.PI*2)*255 : "0"}, ${this.color === 'b' || this.color === "bg" ? Math.abs(wavePos)/(Math.PI*2)*255 : "0"}, ${this.color === 'g' || this.color === "bg" ? Math.abs(wavePos)/(Math.PI*2)*255 : "0"})`;
                     context.beginPath();
                     context.arc(x, y, waveHeight, 0, 2*Math.PI);
                     context.fill();
@@ -119,6 +101,27 @@ class Laptop extends Screen{
             wavesOffset+=0.8;
         }
         context.fillStyle = "gray";
+    }
+}
+
+class Laptop extends Screen{
+    constructor(rad, centerX, centerY, radius, color){
+        super(150,100, 10, 10);
+        this.rad = rad;
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.radius = radius;
+        this.wavesX = -200;
+        this.color = color;
+    }
+    render(context){
+        this.rad += 0.01;
+        if(this.rad > Math.PI*2){
+            this.rad = 0;
+        }
+        const x = this.centerX + this.radius*Math.cos(this.rad);
+        const y = this.centerY + this.radius*Math.sin(this.rad);
+        super.render(context, x, y, this.color);
         context.fillRect(x, y+this.screenHeight-4, this.screenWidth, 10);
     }
 }
@@ -126,13 +129,14 @@ class Laptop extends Screen{
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 
 class Desktop extends Screen{
-    constructor(rad, centerX, centerY, radius){
+    constructor(rad, centerX, centerY, radius, color){
         super(150,100, 10, 10);
         this.rad = rad;
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius = radius;
         this.wavesX = -300;
+        this.color = color;
     }
     render(context){
         this.rad += 0.01;
@@ -141,47 +145,25 @@ class Desktop extends Screen{
         }
         const x = this.centerX + this.radius*Math.cos(this.rad);
         const y = this.centerY + this.radius*Math.sin(this.rad);
-        super.render(context, x, y);
+        super.render(context, x, y, this.color);
         context.fillStyle = "gray";
         const standWidth = 10;
         const standBaseWidth = 40;
         const standHeight = 30;
-        const screenRealW = this.boundingRight - this.boundingLeft;
-        const screenRealH = this.boundingBottom - this.boundingTop;
-        const waveHeight = 5;
-        this.wavesX++;
-        if(this.wavesX > screenRealW){
-            this.wavesX = -screenRealW;
-        }
-        let wavesOffset = 0;
-        for(let wavePos = -2*Math.PI; wavePos < 2*Math.PI; wavePos+=0.01){
-            let waveRows = Math.ceil((screenRealH/waveHeight))*2;
-            for(let row = 0; row < waveRows; row++){
-                let y = row*waveHeight*2+Math.sin(wavePos)*50 + this.boundingTop - screenRealH*1.2;
-                let x = this.wavesX + wavesOffset + this.boundingLeft;
-                if (y < this.boundingBottom && y > this.boundingTop && x < this.boundingRight && x > this.boundingLeft){
-                    context.fillStyle = row % 2 == 0 ? "white" : `rgb(${Math.abs(wavePos)/(Math.PI*2)*255}, 0, 0)`;
-                    context.beginPath();
-                    context.arc(x, y, waveHeight, 0, 2*Math.PI);
-                    context.fill();
-                }
-            }
-            wavesOffset+=0.8;
-        }
-        context.fillStyle = "gray";
         context.fillRect(x+this.screenWidth*0.5-standWidth*0.5, y+this.screenHeight, standWidth, standHeight);
         context.fillRect(x+this.screenWidth*0.5-standBaseWidth*0.5, y+this.screenHeight+standHeight, standBaseWidth, standWidth);
     }
 }
 
 class Phone extends Screen{
-    constructor(rad, centerX, centerY, radius, width, height){
+    constructor(rad, centerX, centerY, radius, width, height, color){
         super(width, height, 10, 5);
         this.rad = rad;
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius = radius;
         this.wavesX = -0.8*Math.PI*4+this.screenWidth-this.bezel;
+        this.color = color
     }
     render(context){
         this.rad += 0.01;
@@ -190,30 +172,7 @@ class Phone extends Screen{
         }
         const x = this.centerX + this.radius*Math.cos(this.rad);
         const y = this.centerY + this.radius*Math.sin(this.rad);
-        super.render(context, x, y);
-        const screenRealW = this.boundingRight - this.boundingLeft;
-        const screenRealH = this.boundingBottom - this.boundingTop;
-        const waveHeight = 5;
-        this.wavesX++;
-        if(this.wavesX > screenRealW){
-            this.wavesX = -screenRealW;
-        }
-        let wavesOffset = 0;
-        for(let wavePos = -2*Math.PI; wavePos < 2*Math.PI; wavePos+=0.01){
-            let waveRows = Math.ceil((screenRealH/waveHeight))*2;
-            for(let row = 0; row < waveRows; row++){
-                let y = row*waveHeight*2+Math.sin(wavePos)*50 + this.boundingTop - screenRealH*1.2;
-                let x = this.wavesX + wavesOffset + this.boundingLeft;
-                if (y < this.boundingBottom && y > this.boundingTop && x < this.boundingRight && x > this.boundingLeft){
-                    context.fillStyle = row % 2 == 0 ? "white" : `rgb(0, ${Math.abs(wavePos)/(Math.PI*2)*255}, 0)`;
-                    context.beginPath();
-                    context.arc(x, y, waveHeight, 0, 2*Math.PI);
-                    context.fill();
-                }
-            }
-            wavesOffset+=0.8;
-        }
-        context.fillStyle = "gray";
+        super.render(context, x, y, this.color);
     }
 }
 
@@ -250,7 +209,7 @@ class CallToAction extends Component {
         const deviceRadius = 200;
         this.setState({
             icons,
-            phones: [new Phone(0, deviceCenterX, deviceCenterY, deviceRadius, 100, 200), new Phone(Math.PI*0.5, deviceCenterX, deviceCenterY, deviceRadius, 150, 120), new Laptop(Math.PI, deviceCenterX, deviceCenterY, deviceRadius), new Desktop(Math.PI*1.5, deviceCenterX, deviceCenterY, deviceRadius)]
+            phones: [new Phone(0, deviceCenterX, deviceCenterY, deviceRadius, 100, 200, "b"), new Phone(Math.PI*0.5, deviceCenterX, deviceCenterY, deviceRadius, 150, 120, "bg"), new Laptop(Math.PI, deviceCenterX, deviceCenterY, deviceRadius, "r"), new Desktop(Math.PI*1.5, deviceCenterX, deviceCenterY, deviceRadius, "g")]
         });
         window.setInterval(() => this.animationLoop(), 1000/30);
         const resizeFunc = window.onresize;
