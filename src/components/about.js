@@ -48,6 +48,46 @@ const About = (props) => {
                         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ec0429cf-1471-466c-b958-f3b1faa7896b/d5zfuqv-2100dad2-6615-4a54-970d-f2a452581111.png/v1/fill/w_893,h_895,strp/domino_icon_by_slamiticon_d5zfuqv-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNyIsInBhdGgiOiJcL2ZcL2VjMDQyOWNmLTE0NzEtNDY2Yy1iOTU4LWYzYjFmYWE3ODk2YlwvZDV6ZnVxdi0yMTAwZGFkMi02NjE1LTRhNTQtOTcwZC1mMmE0NTI1ODExMTEucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ya_zbUNA04g8XGgO7-YGj5QYE23XVworgWfpg_VXD1o" />
                     </div>
                 </div>
+                <div className="job-timeline">
+                    <div className="job-timeline__item">
+                        <div className="job-timeline__item__circle">
+                            <img src="https://namify.com/wp-content/uploads/2017/06/Namify_Logo_Color-300x132.png"/>
+                        </div>
+                        <div className="job-timeline__item__label">
+                            <div>Namify LLC</div>
+                        </div>
+                        <div className="job-timeline__item__description">
+                            <div className="job-timeline__item__description__carot"></div>
+                            I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
+                        </div>
+                    </div>
+                    <div className="job-timeline__item">
+                        <div className="job-timeline__item__circle">
+                            <img src="https://namify.com/wp-content/uploads/2017/06/Namify_Logo_Color-300x132.png"/>
+                        </div>
+                        <div className="job-timeline__item__label">
+                            <div>Namify LLC</div>
+                        </div>
+                        <div className="job-timeline__item__description">
+                            <div className="job-timeline__item__description__carot"></div>
+                            I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
+                        </div>
+                    </div>
+                    <div className="job-timeline__item">
+                        <div className="job-timeline__item__circle">
+                            <img src="https://namify.com/wp-content/uploads/2017/06/Namify_Logo_Color-300x132.png"/>
+                        </div>
+                        <div className="job-timeline__item__label">
+                            <div>Namify LLC</div>
+                        </div>
+                        <div className="job-timeline__item__tick-mark tick-right"></div>
+                        <div className="job-timeline__item__description">
+                            <div className="job-timeline__item__description__carot"></div>
+                            I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
+                        </div>
+                    </div>
+                    <div className="job-timeline__line"></div>
+                </div>
             </div>
             <div className="education-section">
                 <h3>Education</h3>
