@@ -45,62 +45,12 @@
         h3{
             border-bottom: 2px solid $background-color;
         }
-        &__jobs{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-column-gap: 20px;
-            grid-row-gap: 20px;
-            &__item{
-                position: relative;
-                background-color: $light-text-color;
-                border: 2px solid $background-color;
-                color: $background-color;
-                padding: 20px;
-                border-radius: 10px;
-                img{
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    min-width: 200px;
-                    max-width: 80%;
-                    max-height: calc(100% - 40px);
-                    transform: translate(-50%, -50%);
-                }
-                div{
-                    opacity: 0;
-                    transition: opacity 1s ease;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: center;
-                    h5{
-                        font-size: 1.5em;
-                        margin: 0;
-                    }
-                    h6{
-                        i{
-                            margin-right: 10px;
-                        }
-                        margin: 0px;
-                        font-size: 1.2em;
-                    }
-                }
-                &:hover{
-                    div{
-                        opacity: 1;
-                    }
-                    img{
-                        display: none;
-                    }
-                }
-            }
-        }
         .job-timeline{
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
             position: relative;
-            margin: 20px;
+            margin: 200px 20px 20px 20px;
             &__item{
                 display: flex;
                 flex-direction: column;
@@ -149,19 +99,33 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    width: 150px;
+                    div{
+                        text-align: center;
+                    }
                 }
                 &__tick-mark{
                         position: absolute;
                         height: 30px;
                         width: 2px;
+                        top: 35px;
                         background-color: $background-color;
                 }
-                &__tick-label{
-                    transform: rotate(-90deg);
+                &__tick-label-right{
+                    transform: translate(-50%, -80px) rotate(-90deg);
+                    width: 180px;
+                }
+                &__tick-label-left{
+                    transform: translate(50%, -80px) rotate(-90deg);
+                    width: 180px;
+                    position: absolute;
                 }
                 .tick-right{
                     position: absolute;
-                    left: 130px;
+                    left: 150px;
+                }
+                .tick-left{
+                    right: 150px;
                 }
                 &:hover{
                     .job-timeline__item__description{
