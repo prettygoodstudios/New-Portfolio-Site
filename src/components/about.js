@@ -32,7 +32,7 @@ const About = (props) => {
                         <div className="job-timeline__item__tick-label-right tick-right">Novemeber 2017</div>
                         <div className="job-timeline__item__tick-mark tick-left"></div>
                         <div className="job-timeline__item__tick-label-left tick-left">May 2017</div>
-                        <div className="job-timeline__item__description">
+                        <div className="job-timeline__item__description description-left">
                             <div className="job-timeline__item__description__carot"></div>
                             I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
                         </div>
@@ -66,7 +66,7 @@ const About = (props) => {
                         <div className="job-timeline__item__tick-label-right tick-right">Today</div>
                         <div className="job-timeline__item__tick-mark tick-left"></div>
                         <div className="job-timeline__item__tick-label-left tick-left">June 2018</div>
-                        <div className="job-timeline__item__description">
+                        <div className="job-timeline__item__description description-right">
                             <div className="job-timeline__item__description__carot"></div>
                             I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
                         </div>
