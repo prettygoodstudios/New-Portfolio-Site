@@ -18,22 +18,34 @@ const About = (props) => {
             </div>
             <div className="job-section">
                 <h3>Job History</h3>
-                <p>References can be made available upon request.</p>
+                <p>References can be made available upon request. Hover or tap on each item to learn more.</p>
                 <div className="job-section__jobs">
                     <div className="job-section__jobs__item">
-                        <h5>Front End Web Development Intern</h5>
-                        <h6>Namify LLC - January 2018 to May 2018</h6>
-                        <p>I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.</p>
+                        <div>
+                            <h5>Front End Web Development Intern</h5>
+                            <h6>Namify LLC</h6>
+                            <h6><i class="fas fa-calendar-day"></i>January 2018 to May 2018</h6>
+                            <p>I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.</p>
+                        </div>
+                        <img src="https://namify.com/wp-content/uploads/2017/06/Namify_Logo_Color-300x132.png"/>
                     </div>
                     <div className="job-section__jobs__item">
-                        <h5>Quality Insurance Analyst</h5>
-                        <h6>Namify LLC - January 2018 to May 2018</h6>
-                        <p>I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.</p>
+                        <div>
+                            <h5>Quality Insurance Analyst</h5>
+                            <h6>Namify LLC</h6>
+                            <h6><i class="fas fa-calendar-day"></i>January 2018 to May 2018</h6>
+                            <p>I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.</p>
+                        </div>
+                        <img src="https://www.registrationsaver.com/wp-content/uploads/2018/12/Race-Entry.png"/>
                     </div>
                     <div className="job-section__jobs__item">
-                        <h5>Customer Service Representative</h5>
-                        <h6>Namify LLC - January 2018 to May 2018</h6>
-                        <p>I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.</p>
+                        <div>
+                            <h5>Customer Service Representative</h5>
+                            <h6>Namify LLC</h6>
+                            <h6><i class="fas fa-calendar-day"></i>January 2018 to May 2018</h6>
+                            <p>I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.</p>
+                        </div>
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ec0429cf-1471-466c-b958-f3b1faa7896b/d5zfuqv-2100dad2-6615-4a54-970d-f2a452581111.png/v1/fill/w_893,h_895,strp/domino_icon_by_slamiticon_d5zfuqv-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNyIsInBhdGgiOiJcL2ZcL2VjMDQyOWNmLTE0NzEtNDY2Yy1iOTU4LWYzYjFmYWE3ODk2YlwvZDV6ZnVxdi0yMTAwZGFkMi02NjE1LTRhNTQtOTcwZC1mMmE0NTI1ODExMTEucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.ya_zbUNA04g8XGgO7-YGj5QYE23XVworgWfpg_VXD1o" />
                     </div>
                 </div>
             </div>
