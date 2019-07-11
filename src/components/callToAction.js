@@ -308,11 +308,11 @@ class CallToAction extends Component {
                 */
                 }
                 <canvas id="animation-wrapper" height={window.innerHeight - 75 + "px"} width={window.innerWidth + "px"}></canvas>
-                <h1><span></span></h1>
                 <div className="call-to-action__carot-wrapper">
                     <span>Scroll To View More</span>
                     <div className={"call-to-action__carot " + (showCarot ? "" : "carot-hide")} onClick={() => this.scrollToAbout()}></div>
                 </div>
+                <h1><span></span></h1>
             </div>
         );
     }
