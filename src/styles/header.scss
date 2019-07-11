@@ -37,6 +37,10 @@
             border: none;
             height: 30px;
             width: 50px;
+            &:hover{
+                cursor: pointer;
+            }
+    
             position: relative;
             background-color: transparent;
             span{
