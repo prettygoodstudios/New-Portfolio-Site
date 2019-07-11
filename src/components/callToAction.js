@@ -223,7 +223,7 @@ class CallToAction extends Component {
         const deviceRadius = 200;
         this.setState({
             icons,
-            phones: [new Phone(0, deviceCenterX, deviceCenterY, deviceRadius, 100, 200, "b"), new Phone(Math.PI*0.5, deviceCenterX, deviceCenterY, deviceRadius, 150, 120, "bg"), new Laptop(Math.PI, deviceCenterX, deviceCenterY, deviceRadius, "r"), new Desktop(Math.PI*1.5, deviceCenterX, deviceCenterY, deviceRadius, "g")]
+            phones: [new Phone(0, deviceCenterX, deviceCenterY, deviceRadius, 100, 150, "b"), new Phone(Math.PI*0.5, deviceCenterX, deviceCenterY, deviceRadius, 150, 120, "bg"), new Laptop(Math.PI, deviceCenterX, deviceCenterY, deviceRadius, "r"), new Desktop(Math.PI*1.5, deviceCenterX, deviceCenterY, deviceRadius, "g")]
         });
         window.setInterval(() => this.animationLoop(), 1000/30);
         const resizeFunc = window.onresize;
