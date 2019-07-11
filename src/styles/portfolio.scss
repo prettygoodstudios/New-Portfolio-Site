@@ -69,7 +69,7 @@
     }
 }
 
-@media (hover: none) {
+@media (pointer: coarse){
     .portfolio__item{
         &__mask{
             opacity: 1;
