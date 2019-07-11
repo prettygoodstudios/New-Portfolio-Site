@@ -157,7 +157,7 @@ class Desktop extends Screen{
 
 class Phone extends Screen{
     constructor(rad, centerX, centerY, radius, width, height, color){
-        super(width, height, 10, 5);
+        super(width, height, 10, 10);
         this.rad = rad;
         this.centerX = centerX;
         this.centerY = centerY;
@@ -173,6 +173,20 @@ class Phone extends Screen{
         const x = this.centerX + this.radius*Math.cos(this.rad);
         const y = this.centerY + this.radius*Math.sin(this.rad);
         super.render(context, x, y, this.color);
+        context.fillStyle = "gray";
+        if(this.screenWidth > this.screenHeight){
+            const homeX = x + this.screenWidth - this.bezel*0.5;
+            const homeY = y + this.screenHeight*0.5+this.bezel*0.5;
+            context.beginPath();
+            context.arc(homeX, homeY, this.bezel*0.3, 0, 2*Math.PI);
+            context.fill();
+        }else{
+            const homeX = x + this.screenWidth*0.5;
+            const homeY = y + this.screenHeight - this.bezel*0.5;
+            context.beginPath();
+            context.arc(homeX, homeY, this.bezel*0.3, 0, 2*Math.PI);
+            context.fill();
+        }
     }
 }
 
