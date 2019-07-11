@@ -1,7 +1,12 @@
 @import "variables";
 
+@font-face{
+    font-family: AvenirMedium;
+    src: url("/dist/fonts/avenir.ttf") format("truetype");
+}
+
 html, body{
-    font-family: Avenir;
+    font-family: AvenirMedium;
     margin: 0;
     padding: 0;
     background-color: $background-color;
