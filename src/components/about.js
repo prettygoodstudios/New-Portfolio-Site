@@ -13,7 +13,7 @@ const About = (props) => {
                     <p>Web Developer Based in Orem, UT.</p>
                 </div>
                 <p>
-                I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server. I worked at Domino's as a customer service representative from May 2017 to November 2017. My job includes taking orders over the phone and in store. I also sauce and top pizzas and cut them into slices once they come out of the oven.
+                I am young but I am passionate about Web Development. I have experience with several different stacks, frameworks, and languages. I am proficient with the following technologies Ruby on Rails, React, JavaScript, Nodejs, Ruby, SQL, C#, Git CLI, UNIX Bash, HTML and CSS.  I attended CTS a free Ruby on Rails boot camp for high school students where I received formal education over the summer of 2017. I was a Front End Web Development Intern at Namify, LCC from January 2018 to May 2018. Over the course of this time I became proficient with the stack that they used for their Axomo eCommerce platform. Their stack included the following technologies AngularJS, .NET, and Microsoft SQL Server. During the summer of 2018, I was a mentor for Code To Success at Pleasant Grove High School. The curriculum for the summer of 2018 was on React. I completed the course beforehand and assisted students with any issues or questions they faced while completing the curriculum. I am currently employed as a Quality Assurance tester at Race Entry LLC. While at Race Entry I have gained experience with the following technologies SQL, UNIX Bash, Git CLI, Nodejs, React Native and Vue. I have been employed at Race Entry LLC since June of 2018.
                 </p>
             </div>
             <div className="job-section">
@@ -36,7 +36,7 @@ const About = (props) => {
                         <div className="job-timeline__item__tick-label-left tick-left">May 2017</div>
                         <div className="job-timeline__item__description description-left">
                             <div className="job-timeline__item__description__carot"></div>
-                            I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
+                            I worked at Domino's as a customer service representative from May 2017 to November 2017. My job included taking orders over the phone and in store. In addition, I sauced and toped pizzas.
                         </div>
                     </div>
                     <div className="job-timeline__item">
@@ -53,7 +53,7 @@ const About = (props) => {
                         <div className="job-timeline__item__tick-label-left tick-left">January 2018</div>
                         <div className="job-timeline__item__description">
                             <div className="job-timeline__item__description__carot"></div>
-                            I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
+                            I was a Front-End Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo Ecommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
                         </div>
                     </div>
                     <div className="job-timeline__item">
@@ -70,7 +70,7 @@ const About = (props) => {
                         <div className="job-timeline__item__tick-label-left tick-left">June 2018</div>
                         <div className="job-timeline__item__description description-right">
                             <div className="job-timeline__item__description__carot"></div>
-                            I was a Frontend Web Developement Intern at Namify from January 2018 to May 2018. I worked on the Axomo eCommerce platform while there. I gained experience with the following technologies during my time at Namify AngularJS, .NET, and Microsoft SQL Server.
+                            I am currently a QA (Quality Assurance) tester at a small company in Provo named Race Entry. Race entry provides a simple and affordable race registration solution for race directors. The following technologies I have used on a regular basis while at Race Entry: SQL, UNIX Bash, Git CLI, NodeJS, React Native and Vue.
                         </div>
                     </div>
                     <div className="job-timeline__line"></div>
