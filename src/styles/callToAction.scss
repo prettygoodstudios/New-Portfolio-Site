@@ -1,7 +1,6 @@
 .call-to-action{
     width: 100%;
     height: calc(100vh - 75px);
-    height: calc(var(--vh, 1vh) * 100 - 75px);
     margin-top: 75px;
     background-color: $background-color;
     display: flex;
@@ -121,4 +120,25 @@
             max-width: 500px;
         }
     }
+}
+
+@media (pointer: coarse){
+    .call-to-action{
+        height: calc(var(--vh, 1vh) * 100 - 75px);
+    }
+
+}
+
+@media (hover: none){
+    .portfolio__item{
+        height: calc(var(--vh, 1vh) * 100 - 75px);
+    }
+
+}
+
+@media (any-pointer: coarse){
+    .portfolio__item{
+        height: calc(var(--vh, 1vh) * 100 - 75px);
+    }
+
 }
