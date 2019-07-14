@@ -87,9 +87,7 @@
     .header{
         
         &__menu{
-            display: none;
             position: fixed;
-            left: -300px;
             transition: 1s left ease;
         }
 
@@ -97,27 +95,24 @@
             display: block;
         }
 
+        .side-menu{
+            display: flex;
+            justify-content: flex-start;
+            top: 0px;
+            height: 100%;
+            flex-direction: column;
+            background-color: $light-text-color;
+            color: $background-color;
+            a{
+                margin: 20px 20px;
+            }
+        }
+
     }
 }
 
-.close-menu{
-   transition: 1s left ease;
-   left: -300px;
-}
 
-.open-menu{
-    display: flex !important;
-    justify-content: flex-start;
-    top: 0px;
-    left: 0px !important;
-    height: 100%;
-    flex-direction: column;
-    background-color: $light-text-color;
-    color: $background-color;
-    a{
-        margin: 20px 20px;
-    }
-}
+
 
 .mobile-menu{
     transition: 1s left ease;

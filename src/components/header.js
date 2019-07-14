@@ -6,10 +6,16 @@ class Header extends Component {
         super();
         this.state = {
             toggleState: "open",
-            size: "large"
+            size: "large",
+            touchStart: {},
+            menuWidth: 300,
+            innitialLoad: true
         }
+        window.setTimeout(() => this.setState({innitialLoad : false}), 200);
         window.onresize = () => this.updateHeader();
         window.onscroll = (e) => this.updateHeaderHeight(e);
+        document.addEventListener("touchstart", (e) => this.touchStart(e));
+        document.addEventListener("touchend", (e) => this.touchEnd(e));
     }
 
     componentWillUnMount(){
@@ -21,6 +27,11 @@ class Header extends Component {
         if(window.innerWidth > 600 && this.state.toggleState == "close"){
             this.setState({
                 toggleState: "open"
+            });
+        }
+        if(window.innerWidth <= 600){
+            this.setState({
+                menuWidth: document.querySelector(".header__menu").clientWidth
             });
         }
     }
@@ -37,10 +48,46 @@ class Header extends Component {
             });
         }
     }
- 
+
+    touchStart = ({touches}) => {
+        const {clientX, clientY} = touches[0];
+        this.setState({
+            touchStart: {
+                clientX,
+                clientY
+            }
+        });
+    }
+
+    touchEnd = (e) => {   
+        console.log(e);
+        const {clientX, clientY} = e.touches[0];
+        const {touchStart, toggleState} = this.state;
+        const sideMenu = document.querySelector(".header__menu");
+        console.log(sideMenu);
+        if(toggleState === "open"){
+            if(clientX - touchStart.clientX > 100 && touchStart.clientX < 100){
+                this.setState({
+                    toggleState: "close"
+                });
+            }
+        }else{
+            if(touchStart.clientX - clientX > 50 && touchStart.clientX < sideMenu.clientWidth){
+                this.setState({
+                    toggleState: "open"
+                });
+            }
+        }
+        this.setState({
+            touchStart: {}
+        });
+    }
+
     toggleMenu = () => {
         this.setState({
-            toggleState: this.state.toggleState === "open" ? "close" : "open"
+            toggleState: this.state.toggleState === "open" ? "close" : "open",
+            innitialLoad: false,
+            menuWidth: document.querySelector(".header__menu").clientWidth
         });
     }
 
@@ -54,13 +101,13 @@ class Header extends Component {
     }
 
     render(){
-        const {toggleState, size} = this.state;
+        const {toggleState, size, menuWidth, innitialLoad} = this.state;
         return(
             <div className={"header " + (size == "small" ? "header-small" : "")}>
                 <div className="header__title">
                     <h1>Miguel Rust</h1>
                 </div>
-                <div className={"header__menu "+((toggleState == "open") ? "close-menu" : "open-menu")+" "+((size == "small") ? "mobile-menu" : "")}>
+                <div className={"header__menu side-menu "+((size == "small") ? "mobile-menu" : "")} style={toggleState === "open" ? {left: -menuWidth, ...(innitialLoad ? {display: "none"} : {})} : {left: 0}}>
                     <a onClick={() => this.scrollTo("home")}>Home</a>
                     <a onClick={() => this.scrollTo("about")}>About</a>
                     <a onClick={() => this.scrollTo("portfolio")}>Portfolio</a>
