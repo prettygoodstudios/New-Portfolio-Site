@@ -86,3 +86,12 @@
     }
 
 }
+
+@media (any-pointer: coarse){
+    .portfolio__item{
+        &__mask{
+            opacity: 1;
+        }
+    }
+
+}

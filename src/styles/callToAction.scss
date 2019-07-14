@@ -1,6 +1,7 @@
 .call-to-action{
     width: 100%;
     height: calc(100vh - 75px);
+    height: calc(var(--vh, 1vh) * 100 - 75px);
     margin-top: 75px;
     background-color: $background-color;
     display: flex;
@@ -109,7 +110,7 @@
     }
     .call-to-action{
         h1{
-            margin-top: -20px;
+            margin-top: -40px;
         }
     }
 }
