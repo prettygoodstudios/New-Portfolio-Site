@@ -61,7 +61,7 @@ class Header extends Component {
 
     touchEnd = (e) => {   
         console.log(e);
-        const {clientX, clientY} = e.touches[0];
+        const {clientX, clientY} = e.changedTouches[0];
         const {touchStart, toggleState} = this.state;
         const sideMenu = document.querySelector(".header__menu");
         console.log(sideMenu);
