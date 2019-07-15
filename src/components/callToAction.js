@@ -92,7 +92,7 @@ class Screen {
                 let y = row*waveHeight*2+Math.sin(wavePos)*50 + this.boundingTop - screenRealH*1.2;
                 let x = this.wavesX + wavesOffset + this.boundingLeft;
                 if (y < this.boundingBottom && y > this.boundingTop && x < this.boundingRight && x > this.boundingLeft){
-                    context.fillStyle = row % 2 == 0 ? "white" : `rgb(${this.color === 'r' ? Math.abs(wavePos)/(Math.PI*2)*255 : "0"}, ${this.color === 'b' || this.color === "bg" ? Math.abs(wavePos)/(Math.PI*2)*255 : "0"}, ${this.color === 'g' || this.color === "bg" ? Math.abs(wavePos)/(Math.PI*2)*255 : "0"})`;
+                    context.fillStyle = row % 2 == 0 ? "white" : `rgb(${this.color === 'r' ? Math.ceil(Math.abs(wavePos)/(Math.PI*2)*255) : "0"}, ${this.color === 'b' || this.color === "bg" ? Math.ceil(Math.abs(wavePos)/(Math.PI*2)*255) : "0"}, ${this.color === 'g' || this.color === "bg" ? Math.ceil(Math.abs(wavePos)/(Math.PI*2)*255) : "0"})`;
                     context.beginPath();
                     context.arc(x, y, waveHeight, 0, 2*Math.PI);
                     context.fill();
