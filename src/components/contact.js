@@ -95,11 +95,11 @@ export default class Contact extends Component {
                 </div>
                 <div className="contact__form">
                     <h3>Contact Form</h3>
-                    <label for="contactFormIdentity">Name/Entity</label>
+                    <label htmlFor="contactFormIdentity">Name/Entity</label>
                     <input type="text" name="contactFormIdentity" id="contactFormIdentity" value={name} onChange={(e) => this.updateName(e)}/>
-                    <label for="contactFormEmail">Email</label>
+                    <label htmlFor="contactFormEmail">Email</label>
                     <input type="email" name="contactFormEmail" id="contactFormEmail" value={email} onChange={(e) => this.updateEmail(e)}/>
-                    <label for="contactFormMessage" name="contactFormMessage" id="contactFormMessage">Message</label>
+                    <label htmlFor="contactFormMessage" name="contactFormMessage" id="contactFormMessage">Message</label>
                     <textarea name="contactFormMessage" id="contactFormMessage" rows="10" value={message} onChange={(e) => this.updateMessage(e)}></textarea>
                     <center><div id="captcha"></div></center>
                     {error && <div className="contact__form__error">{error}</div>}

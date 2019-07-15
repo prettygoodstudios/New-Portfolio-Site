@@ -23,7 +23,6 @@ class Header extends Component {
     }
 
     updateHeader = () => {
-        console.log("Updat")
         if(window.innerWidth > 600 && this.state.toggleState == "close"){
             this.setState({
                 toggleState: "open"
@@ -37,7 +36,6 @@ class Header extends Component {
     }
 
     updateHeaderHeight = (e) => {
-        console.log(window.pageYOffset);
         if(window.pageYOffset > 100 && this.state.size == "large"){
             this.setState({
                 size: "small"
@@ -60,11 +58,9 @@ class Header extends Component {
     }
 
     touchEnd = (e) => {   
-        console.log(e);
         const {clientX, clientY} = e.changedTouches[0];
         const {touchStart, toggleState} = this.state;
         const sideMenu = document.querySelector(".header__menu");
-        console.log(sideMenu);
         if(toggleState === "open"){
             if(clientX - touchStart.clientX > 100 && touchStart.clientX < 100){
                 this.setState({

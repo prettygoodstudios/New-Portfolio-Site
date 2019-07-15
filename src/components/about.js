@@ -109,7 +109,7 @@ const About = (props) => {
                         <span>Cloud</span>
                     </div>
                     <div>
-                        <i class="fas fa-sitemap"></i>
+                        <i className="fas fa-sitemap"></i>
                         <span>Ruby on Rails</span>
                     </div>
                 </div>
