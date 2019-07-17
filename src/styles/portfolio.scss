@@ -59,6 +59,27 @@
     }
 }
 
+@media only screen and (min-width: 2000px){
+    .portfolio-items{
+        grid-template-rows: 500px 500px !important;
+    }
+    .portfolio{
+        &__item{
+            height: 500px;
+            &__content{
+                img{
+                    min-height: 500px;
+                    max-height: 50vw !important;
+
+                }
+            }
+            &__mask{
+                height: 500px;
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 575px){
     .portfolio-items{
         display: flex !important;
