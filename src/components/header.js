@@ -87,11 +87,11 @@ class Header extends Component {
         });
     }
 
-    scrollTo = (id) => {
+    scrollTo = (id, topOffSet) => {
         const element = document.getElementById(id);
         const offSet = element.offsetTop;
         window.scroll({
-            top: offSet - 80,
+            top: offSet - topOffSet,
             behavior: "smooth"
         })
     }
@@ -104,10 +104,10 @@ class Header extends Component {
                     <h1>Miguel Rust</h1>
                 </div>
                 <div className={"header__menu side-menu "+((size == "small") ? "mobile-menu" : "")} style={toggleState === "open" ? {left: -menuWidth, ...(innitialLoad ? {display: "none"} : {})} : {left: 0}}>
-                    <a onClick={() => this.scrollTo("home")}>Home</a>
-                    <a onClick={() => this.scrollTo("about")}>About</a>
-                    <a onClick={() => this.scrollTo("portfolio")}>Portfolio</a>
-                    <a onClick={() => this.scrollTo("contact")}>Contact</a>
+                    <a onClick={() => this.scrollTo("home", 80)}>Home</a>
+                    <a onClick={() => this.scrollTo("about", 50)}>About</a>
+                    <a onClick={() => this.scrollTo("portfolio", 60)}>Portfolio</a>
+                    <a onClick={() => this.scrollTo("contact", 50)}>Contact</a>
                 </div>
                 <div className="header__toggle">
                     <button onClick={this.toggleMenu} className={toggleState}>
