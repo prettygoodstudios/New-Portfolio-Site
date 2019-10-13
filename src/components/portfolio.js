@@ -56,7 +56,7 @@ class Portfolio extends Component {
                     title: "Accuracy Accounting",
                     description: "Marketing page for a mock accounting services company. The page was built with React and features adavanced features such as an HTML5 canvas animation and intercative calendar. The interactive calendar depends on a custom rest API that was built with Express, Nodejs and MySQL.",
                     image: accuracy,
-                    url: "https://accuracy-accounting.herokuapp.com/",
+                    url: "https://accuracyfrontend.geofoc.us",
                     stack: "React",
                     repo: "https://github.com"
                 },{
