@@ -82,7 +82,7 @@ class Screen {
         const screenRealH = this.boundingBottom - this.boundingTop;
         const waveHeight = 5;
         this.wavesX++;
-        if(this.wavesX > screenRealW){
+        if(this.wavesX > Math.PI*2*0.8){
             this.wavesX = -screenRealW;
         }
         let wavesOffset = 0;
