@@ -111,9 +111,12 @@ export default class Contact extends Component {
                     <span>Location: Orem, UT</span> 
                 </div>
                 {success && 
-                    <div className="contact__modal">
-                        <h1>Successfully Sent!</h1>
-                        <button onClick={() => this.setState({success: false})}>Dismiss</button>
+                    <div>
+                        <div className="contact__modal">
+                            <h1>Successfully Sent!</h1>
+                            <button onClick={() => this.setState({success: false})}>Dismiss</button>
+                        </div>
+                        <div className="contact__modal-mask"></div>
                     </div>
                 }
             </div>  
