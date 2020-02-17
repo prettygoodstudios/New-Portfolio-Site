@@ -4,6 +4,7 @@ import geoImage from "../images/frame-001.jpg";
 import bioImage from "../images/geofoc.png";
 import oldSite from "../images/oldsite.png";
 import accuracy from "../images/accuracy.png";
+import pascalImage from "../images/pascal.png";
 
 const PortofolioModal = (props) => {
     const {url, title, description, repo, image, toggleModal} = props;
@@ -88,10 +89,10 @@ class Portfolio extends Component {
                     repo: "https://github.com",
                     show: false
                 },{
-                    title: "GeoFocus",
-                    description: "Web app for photographers built with Ruby On Rails, React, Mapbox, AWS SES and AWS S3. It was deployed to the Heroku Paas.",
-                    image: geoImage,
-                    url: "https://geofoc.us",
+                    title: "Pascal",
+                    description: "Educational math game built with React.",
+                    image: pascalImage,
+                    url: "https://pascal.geofoc.us",
                     stack: "Rails",
                     repo: "https://github.com",
                     show: false
